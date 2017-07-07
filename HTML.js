@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-import shallowCompare from 'react-addons-shallow-compare';
 import htmlparser2 from 'htmlparser2';
 import HTMLElement from './HTMLElement';
 import HTMLTextNode from './HTMLTextNode';
@@ -8,7 +7,7 @@ import HTMLRenderers from './HTMLRenderers';
 import HTMLStyles from './HTMLStyles';
 import { TEXT_TAG_NAMES } from './HTMLUtils';
 
-export default class HTML extends React.Component {
+export default class HTML extends React.PureComponent {
   /* ****************************************************************************/
   // Class
   /* ****************************************************************************/
@@ -33,14 +32,6 @@ export default class HTML extends React.Component {
             ...(this.props.renderers || {})
         };
         this.imgsToRender = [];
-    }
-
-  /* ****************************************************************************/
-  // Data Lifecycle
-  /* ****************************************************************************/
-
-    shouldComponentUpdate (nextProps, nextState) {
-        return shallowCompare(this, nextProps, nextState);
     }
 
   /* ****************************************************************************/

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import shallowCompare from 'react-addons-shallow-compare';
 import HTMLStyles from './HTMLStyles';
 
-class HTMLElement extends React.Component {
+class HTMLElement extends React.PureComponent {
   /* ****************************************************************************/
   // Class
   /* ****************************************************************************/
@@ -18,14 +17,6 @@ class HTMLElement extends React.Component {
         onLinkPress: React.PropTypes.func,
         children: React.PropTypes.node,
         parentIsText: React.PropTypes.bool.isRequired
-    }
-
-  /* ****************************************************************************/
-  // Data Lifecycle
-  /* ****************************************************************************/
-
-    shouldComponentUpdate (nextProps, nextState) {
-        return shallowCompare(this, nextProps, nextState);
     }
 
   /* ****************************************************************************/
