@@ -169,14 +169,9 @@ class HTMLStyles {
       .map(([key, value]) => {
           if (!styleProps[key]) { return undefined; }
 
-          const testStyle = {};
-          testStyle[key] = value;
-          if (value.endsWith('px')) {
-              const numericValue = parseFloat(value.replace('px', ''));
-              if (!isNaN(numericValue)) {
-                  testStyle[key] = numericValue;
-                  return [key, numericValue];
-              }
+          const numericValue = parseFloat(value.replace('px', ''));
+          if (!isNaN(numericValue)) {
+              return [key, numericValue];
           }
           return [key, value];
       })
