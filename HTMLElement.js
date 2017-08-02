@@ -44,6 +44,8 @@ class HTMLElement extends React.PureComponent {
             } else {
                 return <Text>{"\n• "}</Text>;
             }
+        } else if (this.props.tagName === 'br') {
+            return <Text>{'\n'}</Text>;
         } else {
             return undefined;
         }
